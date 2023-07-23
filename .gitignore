@@ -7,10 +7,8 @@ venv/
 *.pyd
 
 # Generated files
-
-words.csv
-datatext.txt
-embeddings.csv
+migrations
+db.sqlite3
 
 # IDE and Editor-related
 .vscode/
