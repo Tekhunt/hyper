@@ -1,0 +1,35 @@
+henv
+# Python-related
+__pycache__/
+venv/
+*.pyc
+*.pyo
+*.pyd
+
+# Generated files
+
+words.csv
+datatext.txt
+embeddings.csv
+
+# IDE and Editor-related
+.vscode/
+.idea/
+*.sublime-workspace
+*.iml
+
+# Dependency directories
+/lib/
+/libs/
+/build/
+/dist/
+
+# Environment files
+.env
+.env.*
+.env.local
+
+# Miscellaneous
+*.log
+*.swp
+.DS_Store
