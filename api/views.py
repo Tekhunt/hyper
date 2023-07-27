@@ -6,7 +6,7 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from django.contrib.auth import update_session_auth_hash
 from api.models.blog import Blog
-
+from rest_framework.views import APIView
 from api.models.custom_user import User
 from api.models.daily_activity import DailyActivity
 from api.models.github_issue import GitHubIssue
@@ -15,6 +15,32 @@ from api.models.pull_request import PullRequest
 from api.models.stackoverflow import StackOverflowEngagement
 from api.models.twitter_post import TwitterPost
 from api.serializers import BlogSerializer, ChangePasswordSerializer, DailyActivitySerializer, GitHubIssueSerializer, InternSerializer, PullRequestSerializer, StackOverflowEngagementSerializer, TwitterPostSerializer, UserSerializer
+
+
+class WelcomeAPIView(APIView):
+    def get(self, request):
+        urls = {
+            "Register User": "/api/v1/usercreate/",
+            "User List": "/api/v1/users/",
+            "Single User": "/api/v1/user/<int:pk>/",
+            "Login": "/api/login/",
+            "Change Password": "/api/change-password/",
+            "Interns List and Create": "/api/v1/interns/",
+            "Intern Retrieve, Update, and Destroy": "/api/v1/interns/<int:pk>/",
+            "Blogs List and Create": "/api/v1/blogs/",
+            "Blog Retrieve, Update, and Destroy": "/api/v1/blogs/<int:pk>/",
+            "GitHub Issues List and Create": "/api/v1/github-issues/",
+            "GitHub Issue Retrieve, Update, and Destroy": "/api/v1/github-issues/<int:pk>/",
+            "Pull Requests List and Create": "/api/v1/pull-requests/",
+            "Pull Request Retrieve, Update, and Destroy": "/api/v1/pull-requests/<int:pk>/",
+            "StackOverflow Engagements List and Create": "/api/v1/stackoverflow-engagements/",
+            "StackOverflow Engagement Retrieve, Update, and Destroy": "/api/v1/stackoverflow-engagements/<int:pk>/",
+            "Twitter Posts List and Create": "/api/v1/twitter-posts/",
+            "Twitter Post Retrieve, Update, and Destroy": "/api/v1/twitter-posts/<int:pk>/",
+            "Daily Activities List and Create": "/api/v1/daily-activities/",
+            "Daily Activity Retrieve, Update, and Destroy": "/api/v1/daily-activities/<int:pk>/",
+        }
+        return Response({"message": "Welcome to Bitnine Internship API!", "urls": urls})
 
 @extend_schema(tags=["User"])
 class UserCreateAPIView(generics.CreateAPIView):

@@ -1,0 +1,44 @@
+version: '3.8'
+services:
+  hyper:
+    restart: always
+    container_name: hyper_container
+    build: .
+    command: python manage.py runserver 0.0.0.0:9000
+    ports:
+      - "9000:9000"
+    volumes:
+      - .:/app
+    environment:
+      - DEBUG=True  # Set your Django settings here if needed
+    depends_on:
+      - db
+    networks:
+      - app_network
+  
+  db:
+    restart: always
+    container_name: hyper_db
+    image: postgres:13
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - .:/code
+    ports:
+      - "5432:5432"
+    healthcheck:
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - app_network
+
+volumes:
+  postgres_data:
+
+networks:
+  app_network:
+    driver: bridge

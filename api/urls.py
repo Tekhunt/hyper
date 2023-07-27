@@ -2,10 +2,11 @@ from django.urls import include, path
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
 )
-from api.views import BlogListCreateView, BlogRetrieveUpdateDestroyView, ChangePasswordView, DailyActivityListCreateView, DailyActivityRetrieveUpdateDestroyView, GitHubIssueListCreateView, GitHubIssueRetrieveUpdateDestroyView, InternListCreateView, InternRetrieveUpdateDestroyView, PullRequestListCreateView, PullRequestRetrieveUpdateDestroyView, StackOverflowEngagementListCreateView, StackOverflowEngagementRetrieveUpdateDestroyView, TwitterPostListCreateView, TwitterPostRetrieveUpdateDestroyView, UserCreateAPIView, UserListAPIView, UserRetrieveUpdateDestroyAPIView
+from api.views import BlogListCreateView, BlogRetrieveUpdateDestroyView, ChangePasswordView, DailyActivityListCreateView, DailyActivityRetrieveUpdateDestroyView, GitHubIssueListCreateView, GitHubIssueRetrieveUpdateDestroyView, InternListCreateView, InternRetrieveUpdateDestroyView, PullRequestListCreateView, PullRequestRetrieveUpdateDestroyView, StackOverflowEngagementListCreateView, StackOverflowEngagementRetrieveUpdateDestroyView, TwitterPostListCreateView, TwitterPostRetrieveUpdateDestroyView, UserCreateAPIView, UserListAPIView, UserRetrieveUpdateDestroyAPIView, WelcomeAPIView
 
 
 urlpatterns = [
+    path("api/v1/welcome/", WelcomeAPIView.as_view(), name='welcome'),
     path("api/v1/usercreate/", UserCreateAPIView.as_view(), name="register"),
     path("api/v1/users/", UserListAPIView.as_view(), name="user-list"),
     path(
