@@ -41,3 +41,16 @@ Install the required Python packages:
 Access the Hyper9 application in your web browser by navigating to http://localhost:9000/api/v1/welcome/ to see endpoints accessible.
 
 Use the provided API endpoints to manage interns, operational managers, and their activities
+
+## Environment Variables
+
+SECRET_KEY=django-insecure-&xx723ugpfnk=l@o)xf%7!l9o+@d9#(&_%#6vr*o-y7p8xi83x
+DEBUG=True
+DB_USERNAME=postgres
+DB_PASSWORD=postgres
+DB_NAME=postgres
+DB_HOSTNAME=db
+DB_PORT=5432
+NGINX_PORT=80
+
+Create .env file and add the above files
